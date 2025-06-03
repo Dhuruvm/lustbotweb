@@ -1,44 +1,74 @@
 
-// React Error Boundary Implementation
-class ReactErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false, error: null };
+// React Error Handler (without requiring React to be loaded)
+class ReactErrorHandler {
+  constructor() {
+    this.handleReactErrors();
   }
 
-  static getDerivedStateFromError(error) {
-    return { hasError: true, error };
+  handleReactErrors() {
+    // Handle React hydration errors specifically
+    window.addEventListener('error', (event) => {
+      const message = event.error?.message || '';
+      
+      if (message.includes('418') || message.includes('423') || 
+          message.includes('Hydration') || message.includes('hydration')) {
+        console.warn('Handled React hydration error:', message);
+        event.preventDefault();
+        
+        // Force content display after hydration error
+        this.forceContentDisplay();
+      }
+    });
+
+    // Handle promise rejections from React
+    window.addEventListener('unhandledrejection', (event) => {
+      if (event.reason && event.reason.toString().includes('React')) {
+        event.preventDefault();
+        console.warn('Handled React promise rejection');
+        this.forceContentDisplay();
+      }
+    });
   }
 
-  componentDidCatch(error, errorInfo) {
-    console.warn('React Error Boundary caught:', error, errorInfo);
-    
-    // Try to recover from hydration errors
-    if (error.message.includes('Hydration') || error.message.includes('418') || error.message.includes('423')) {
-      setTimeout(() => {
-        this.setState({ hasError: false, error: null });
-        window.location.reload();
-      }, 1000);
-    }
-  }
+  forceContentDisplay() {
+    setTimeout(() => {
+      // Remove all opacity restrictions
+      const hiddenElements = document.querySelectorAll('[style*="opacity:0"], [style*="opacity: 0"]');
+      hiddenElements.forEach(el => {
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'translateY(0px)';
+        el.style.filter = 'none';
+      });
 
-  render() {
-    if (this.state.hasError) {
-      return React.createElement('div', {
-        style: {
-          padding: '20px',
-          background: '#1a1a1a',
-          color: '#fff',
-          textAlign: 'center'
-        }
-      }, 'Loading...');
-    }
+      // Specifically show main content
+      const mainContent = document.querySelector('.relative.w-full.overflow-x-hidden');
+      if (mainContent) {
+        mainContent.style.opacity = '1';
+        mainContent.style.visibility = 'visible';
+      }
 
-    return this.props.children;
+      // Show hero section
+      const heroSection = document.querySelector('.relative.min-h-\\[calc\\(100vh-4rem\\)\\]');
+      if (heroSection) {
+        heroSection.style.opacity = '1';
+        heroSection.style.filter = 'none';
+        heroSection.style.transform = 'none';
+      }
+
+      // Show all sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0px)';
+      });
+
+      console.log('Forced content display after React error');
+    }, 100);
   }
 }
 
-// Initialize error boundary if React is available
-if (typeof React !== 'undefined') {
-  window.ReactErrorBoundary = ReactErrorBoundary;
+// Initialize immediately without waiting for React
+if (!window.reactErrorHandler) {
+  window.reactErrorHandler = new ReactErrorHandler();
 }

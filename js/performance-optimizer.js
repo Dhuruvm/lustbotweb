@@ -1,11 +1,10 @@
-
 // Performance Optimizer for Website Loading Issues
 class PerformanceOptimizer {
   constructor() {
     if (window.performanceOptimizerInstance) {
       return window.performanceOptimizerInstance;
     }
-    
+
     this.initialized = false;
     this.criticalResourcesLoaded = false;
     window.performanceOptimizerInstance = this;
@@ -15,22 +14,22 @@ class PerformanceOptimizer {
   init() {
     if (this.initialized) return;
     this.initialized = true;
-    
+
     // Fix existing conflicts first
     this.fixScriptConflicts();
-    
+
     // Preload critical resources
     this.preloadCriticalResources();
-    
+
     // Optimize script loading
     this.optimizeScriptLoading();
-    
+
     // Handle viewport optimizations
     this.optimizeViewport();
-    
+
     // Monitor performance
     this.monitorPerformance();
-    
+
     // Force content display
     this.forceContentDisplay();
   }
@@ -178,102 +177,69 @@ class PerformanceOptimizer {
     // Update music player with Ice track
     const musicTitle = document.querySelector('.text-white.text-sm.font-medium');
     const musicArtist = document.querySelector('.text-zinc-400.text-sm');
-    
+
     if (musicTitle && musicTitle.textContent.includes('Jhol')) {
       musicTitle.textContent = 'Ice';
     }
-    
+
     if (musicArtist && musicArtist.textContent.includes('Maanu')) {
       musicArtist.textContent = 'Ice';
     }
   }
 
   updateStatistics() {
-    // Update statistics with correct values
-    const statsElements = document.querySelectorAll('.text-xl.sm\\:text-2xl.lg\\:text-4xl');
+    // Use fallback stats if API fails
+    const fallbackStats = {
+      servers: 150,
+      users: 200000,
+      commands: 40900
+    };
+
+    // Update stats displays with fallback data
+    const statsElements = document.querySelectorAll('.text-xl.sm\\:text-2xl.lg\\:text-4xl.font-bold.text-white span');
     if (statsElements.length >= 3) {
-      statsElements[0].textContent = '50';
-      statsElements[1].textContent = '200,000';
-      statsElements[2].textContent = '40,900';
+      statsElements[0].textContent = fallbackStats.servers.toLocaleString();
+      statsElements[1].textContent = fallbackStats.users.toLocaleString();
+      statsElements[2].textContent = fallbackStats.commands.toLocaleString();
     }
 
-    // Update hero subtitle
-    const heroSubtitle = document.querySelector('p.text-lg.text-zinc-300');
-    if (heroSubtitle) {
-      heroSubtitle.textContent = 'Trusted by 50+ servers and 200k+ users, seamlessly blending functionality with style.';
-    }
-  }
-
-  monitorPerformance() {
-    // Monitor and report performance issues
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        this.checkForLoadingIssues();
-      }, 2000);
-    });
-  }
-
-  checkForLoadingIssues() {
-    // Check if content is properly displayed
-    const heroSection = document.querySelector('h1');
-    const statsSection = document.querySelector('.flex.gap-4.sm\\:gap-8');
-    
-    if (!heroSection || !statsSection) {
-      console.warn('Content loading issues detected, applying fixes...');
-      this.applyEmergencyFixes();
-    }
-  }
-
-  applyEmergencyFixes() {
-    // Emergency content restoration
-    document.body.style.opacity = '1';
-    
-    // Remove all opacity: 0 styles
-    const hiddenElements = document.querySelectorAll('[style*="opacity:0"]');
-    hiddenElements.forEach(el => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
-      el.style.filter = 'none';
-    });
-  }
-
-  forceContentDisplay() {
-    // Force all content to be visible immediately
-    setTimeout(() => {
-      const allElements = document.querySelectorAll('*[style*="opacity:0"], *[style*="opacity: 0"]');
-      allElements.forEach(el => {
-        el.style.opacity = '1';
-        el.style.visibility = 'visible';
-        el.style.transform = 'translateY(0px)';
-        el.style.filter = 'none';
-      });
-
-      // Specifically target main content areas
-      const mainContent = document.querySelector('.relative.w-full.overflow-x-hidden');
-      if (mainContent) {
-        mainContent.style.opacity = '1';
-        mainContent.style.visibility = 'visible';
-      }
-
-      // Fix hero section
-      const heroSection = document.querySelector('.relative.min-h-\\[calc\\(100vh-4rem\\)\\]');
-      if (heroSection) {
-        heroSection.style.opacity = '1';
-        heroSection.style.filter = 'none';
-        heroSection.style.transform = 'none';
-      }
-
-      // Fix all sections
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        section.style.opacity = '1';
-        section.style.transform = 'translateY(0px)';
-      });
-
-      // Update statistics immediately
-      this.updateStatistics();
-      
     }, 100);
+
+    // Emergency content display if nothing is visible after 3 seconds
+    setTimeout(() => {
+      this.emergencyContentDisplay();
+    }, 3000);
+  }
+
+  emergencyContentDisplay() {
+    // Check if main content is visible
+    const mainContent = document.querySelector('.relative.w-full.overflow-x-hidden');
+    const heroSection = document.querySelector('h1');
+
+    if (!mainContent || !heroSection || 
+        getComputedStyle(mainContent).opacity === '0' ||
+        getComputedStyle(heroSection).opacity === '0') {
+
+      console.warn('Emergency content display activated');
+
+      // Force display everything
+      document.body.style.opacity = '1';
+      document.body.style.visibility = 'visible';
+
+      // Remove all inline opacity styles
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach(el => {
+        if (el.style.opacity === '0' || el.style.opacity === '0.0') {
+          el.style.opacity = '1';
+          el.style.visibility = 'visible';
+          el.style.transform = 'none';
+          el.style.filter = 'none';
+        }
+      });
+
+      // Update stats
+      this.updateStatistics();
+    }
   }
 }
 

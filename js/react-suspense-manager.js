@@ -66,23 +66,33 @@ class SuspenseManager {
   }
 
   observeComponentLoading() {
-    // Watch for React components that take time to load
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach(mutation => {
-        if (mutation.type === 'childList') {
-          mutation.addedNodes.forEach(node => {
-            if (node.nodeType === 1 && node.textContent.includes('Loading')) {
-              this.enhanceLoadingState(node);
-            }
-          });
-        }
-      });
-    });
+    // Wait for document.body to be available
+    if (!document.body) {
+      setTimeout(() => this.observeComponentLoading(), 100);
+      return;
+    }
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
+    try {
+      // Watch for React components that take time to load
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach(mutation => {
+          if (mutation.type === 'childList') {
+            mutation.addedNodes.forEach(node => {
+              if (node.nodeType === 1 && node.textContent && node.textContent.includes('Loading')) {
+                this.enhanceLoadingState(node);
+              }
+            });
+          }
+        });
+      });
+
+      observer.observe(document.body, {
+        childList: true,
+        subtree: true
+      });
+    } catch (error) {
+      console.warn('Failed to initialize MutationObserver:', error.message);
+    }
   }
 
   enhanceLoadingState(element) {
