@@ -71,6 +71,7 @@
     <script src="js/react-intersection-observer.js"></script>
     <script src="js/react-suspense-manager.js"></script>
     <script src="js/performance-optimizer.js"></script>
+    <script src="js/react-performance-lib.js"></script>
 </head>
 
 <body class="font-satoshi font-cal-sans flex flex-col min-h-screen justify-between bg-lust-100">
@@ -102,7 +103,7 @@
                                     </div>
                                     <div
                                         class="relative px-4 py-2 text-sm font-medium text-white/70 group-hover:text-white transition-all duration-300">
-                                    
+
                                         </div>
                                     </div>
                                 </a><a class="relative group" href="/embed">
@@ -679,7 +680,7 @@
                                             aria-hidden="true" class="w-5 h-5 text-lust-primary" height="1em"
                                             width="1em" xmlns="http://www.w3.org/2000/svg">
                                             <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 000-1.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
                                             </path>
                                             <path stroke-linecap="round" stroke-linejoin="round"
                                                 d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -691,7 +692,7 @@
                         </div>
                     </div>
                     <div
-                        class="bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-white/5 hover:border-white/10 transition-all duration-300 group">
+                        class="bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group">
                         <div class="flex flex-col h-full">
                             <div
                                 class="w-12 h-12 rounded-2xl bg-lust-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -816,16 +817,45 @@
                                 prevention</p>
                             <div class="mt-6 grid grid-cols-3 gap-3">
                                 <div class="bg-white/5 rounded-xl p-3 text-center">
-                                    <p class="text-sm text-zinc-400">Anti-Raid</p>
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-lust-primary/10 flex items-center justify-center mx-auto mb-3">
+                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                            aria-hidden="true" class="w-5 h-5 text-lust-primary" height="1em"
+                                            width="1em" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                            </path>
+                                        </svg></div>
+                                    <p class="text-sm text-white">Anti-Raid</p>
                                     <p class="text-lg text-lust-primary font-semibold mt-1">Active</p>
                                 </div>
                                 <div class="bg-white/5 rounded-xl p-3 text-center">
-                                    <p class="text-sm text-zinc-400">Auto-Mod</p>
-                                    <p class="text-lg text-lust-primary font-semibold mt-1">24/7</p>
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-lust-primary/10 flex items-center justify-center mx-auto mb-3">
+                                        <svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                                            viewBox="0 0 256 256" class="w-5 h-5 text-lust-primary" height="1em"
+                                            width="1em" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z">
+                                            </path>
+                                        </svg></div>
+                                    <p class="text-sm text-white">Auto-Mod</p>
+                                    <p class="text-xs text-zinc-500">Smart filtering</p>
                                 </div>
-                                <div class="bg-white/5 rounded-xl p-3 text-center">
-                                    <p class="text-sm text-zinc-400">Threats</p>
-                                    <p class="text-lg text-lust-primary font-semibold mt-1">0</p>
+                                <div class="bg-white/5 rounded-xl p-4 text-center">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-lust-primary/10 flex items-center justify-center mx-auto mb-3">
+                                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                                            aria-hidden="true" class="w-5 h-5 text-lust-primary" height="1em"
+                                            width="1em" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                                            </path>
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                        </svg></div>
+                                    <p class="text-sm text-white">Custom Rules</p>
+                                    <p class="text-xs text-zinc-500">Your settings</p>
                                 </div>
                             </div>
                         </div>
@@ -852,272 +882,6 @@
                                         <p class="text-sm text-zinc-400">Team Size</p>
                                         <p class="text-lg text-lust-primary font-semibold mt-1">5+</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-24 bg-[#0D0D0D]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Real-time <span
-                            class="text-lust-primary">Monitoring</span></h2>
-                    <p class="text-lg text-zinc-400 max-w-2xl mx-auto">Keep track of your server's activity with
-                        comprehensive logging and monitoring tools</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-                    <div
-                        class="md:col-span-2 bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group">
-                        <div class="flex flex-col h-full">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-lust-primary/10 flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-lust-primary" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M9 12H15M12 9V15M3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </svg></div>
-                                <h3 class="text-lg font-medium text-white">Server Logging</h3>
-                            </div>
-                            <p class="text-sm text-zinc-400 mb-4">Track member activity, server changes, and moderation
-                                actions in real-time</p>
-                            <div class="flex-1 bg-black/20 rounded-xl p-4 space-y-3 overflow-hidden">
-                                <div
-                                    class="animate-slide-up opacity-0 [animation-delay:0.2s] [animation-fill-mode:forwards]">
-                                    <div
-                                        class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                        <div class="w-8 h-8 rounded-full bg-zinc-800 flex-shrink-0"><img
-                                                src="images/lustav.png" alt="User Avatar"
-                                                class="w-full h-full rounded-full object-cover"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="flex items-center gap-2 mb-1"><span
-                                                    class="text-white text-sm font-medium">Member Updated</span>
-                                                <div class="w-2 h-2 rounded-full bg-lust-primary"></div>
-                                            </div>
-                                            <p class="text-zinc-400 text-sm truncate">Server avatar changed</p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-xs text-zinc-500">11:38 PM</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="animate-slide-up opacity-0 [animation-delay:0.4s] [animation-fill-mode:forwards]">
-                                    <div
-                                        class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                        <div class="w-8 h-8 rounded-full bg-zinc-800 flex-shrink-0"><img
-                                                src="images/lustav.png" alt="User Avatar"
-                                                class="w-full h-full rounded-full object-cover"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="flex items-center gap-2 mb-1"><span
-                                                    class="text-white text-sm font-medium">Member Joined</span>
-                                                <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                                            </div>
-                                            <p class="text-zinc-400 text-sm truncate">Account created 24 days ago</p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-xs text-zinc-500">11:45 PM</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="animate-slide-up opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards]">
-                                    <div
-                                        class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                        <div class="w-8 h-8 rounded-full bg-zinc-800 flex-shrink-0"><img
-                                                src="images/lustav.png" alt="User Avatar"
-                                                class="w-full h-full rounded-full object-cover"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="flex items-center gap-2 mb-1"><span
-                                                    class="text-white text-sm font-medium">Member Left</span>
-                                                <div class="w-2 h-2 rounded-full bg-red-500"></div>
-                                            </div>
-                                            <p class="text-zinc-400 text-sm truncate">Was member for 2 months</p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-xs text-zinc-500">12:12 AM</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                    class="animate-slide-up opacity-0 [animation-delay:0.8s] [animation-fill-mode:forwards]">
-                                    <div
-                                        class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
-                                        <div class="w-8 h-8 rounded-full bg-zinc-800 flex-shrink-0"><img
-                                                src="images/lustav.png" alt="User Avatar"
-                                                class="w-full h-full rounded-full object-cover"></div>
-                                        <div class="flex-1 min-w-0">
-                                            <div class="flex items-center gap-2 mb-1"><span
-                                                    class="text-white text-sm font-medium">Role Added</span>
-                                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                            </div>
-                                            <p class="text-zinc-400 text-sm truncate">Moderator role assigned</p>
-                                        </div>
-                                        <div class="text-right">
-                                            <p class="text-xs text-zinc-500">10:22 PM</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group">
-                        <div class="flex flex-col h-full">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-lust-primary/10 flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-lust-primary" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </svg></div>
-                                <h3 class="text-lg font-medium text-white">Auto PFPs</h3>
-                            </div>
-                            <p class="text-sm text-zinc-400 mb-4">Automatically update your profile picture with curated
-                                images every minute</p>
-                            <div class="flex-1 bg-black/20 rounded-xl p-4">
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div
-                                        class="animate-fade-in opacity-0 [animation-delay:0.3s] [animation-fill-mode:forwards]">
-                                        <div class="aspect-square rounded-lg bg-white/5 overflow-hidden"><img
-                                                src="images/lust-auto1.jpg" alt="Profile Picture"
-                                                class="w-full h-full object-cover"></div>
-                                    </div>
-                                    <div
-                                        class="animate-fade-in opacity-0 [animation-delay:0.6s] [animation-fill-mode:forwards]">
-                                        <div class="aspect-square rounded-lg bg-white/5 overflow-hidden"><img
-                                                src="images/lust-auto2.jpg" alt="Profile Picture"
-                                                class="w-full h-full object-cover"></div>
-                                    </div>
-                                    <div
-                                        class="animate-fade-in opacity-0 [animation-delay:0.9s] [animation-fill-mode:forwards]">
-                                        <div class="aspect-square rounded-lg bg-white/5 overflow-hidden"><img
-                                                src="images/lust-auto3.jpg" alt="Profile Picture"
-                                                class="w-full h-full object-cover"></div>
-                                    </div>
-                                    <div
-                                        class="animate-fade-in opacity-0 [animation-delay:1.2s] [animation-fill-mode:forwards]">
-                                        <div class="aspect-square rounded-lg bg-white/5 overflow-hidden"><img
-                                                src="images/lust-auto4.jpg" alt="Profile Picture"
-                                                class="w-full h-full object-cover"></div>
-                                    </div>
-                                </div>
-                                <div class="mt-3">
-                                    <div class="flex items-center justify-between text-xs text-zinc-500">
-                                        <span>Auto-posts every 1 minute</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group">
-                        <div class="flex flex-col h-full">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-10 h-10 rounded-xl bg-lust-primary/10 flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-lust-primary" viewBox="0 0 24 24" fill="none">
-                                        <path
-                                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </svg></div>
-                                <h3 class="text-lg font-medium text-white">Instagram Reels</h3>
-                            </div>
-                            <p class="text-sm text-zinc-400 mb-4">Download and share Instagram reels directly in your
-                                server</p>
-                            <div class="flex-1 bg-black/20 rounded-xl p-4">
-                                <div class="relative flex items-center mb-2" style="min-height:32px">
-                                    <div class="absolute left-0 top-0" style="width:32px;height:24px;z-index:0">
-                                        <div
-                                            style="width:20px;height:16px;border-left:2px solid #4E5058;border-top:2px solid #4E5058;border-top-left-radius:8px;position:absolute;left:12px;bottom:0;box-sizing:border-box">
-                                        </div>
-                                    </div>
-                                    <div class="pb-2"
-                                        style="margin-left:40px;z-index:1;display:flex;align-items:center">
-                                        <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0"
-                                            style="margin-left:4px;margin-right:8px"><img src="images/adam-av.png"
-                                                alt="User" class="w-full h-full object-cover"></div>
-                                        <div class="flex items-center"><span
-                                                class="text-xs text-zinc-400 font-medium">Ice</span><span
-                                                class="flex items-center gap-1 px-1.5 py-0.5 bg-[#5865F2] rounded text-white text-[10px] font-medium ml-1"><img
-                                                    src="images/applications.svg" alt="app" class="w-3 h-3 mr-1"
-                                                    color="white">repost instagram</span></div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-2">
-                                    <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0"><img
-                                            src="images/lustav.png" alt="lust" class="w-full h-full object-cover">
-                                    </div>
-                                    <div class="flex-1">
-                                        <div class="flex items-center gap-2 mb-0.5"><span
-                                                class="text-sm text-white font-medium">lust</span><span
-                                                class="px-1 py-0.5 text-[10px] font-medium bg-[#5865F2] rounded text-white">APP</span><span
-                                                class="text-xs text-zinc-500">16/05/2025 10:02 PM</span></div>
-                                        <div
-                                            class="aspect-[9/16] bg-white/5 rounded-lg overflow-hidden relative group max-w-[135px] mt-2">
-                                            <img src="images/lust-cover.webp" alt="Reel Preview"
-                                                class="w-full h-full object-cover"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="md:col-span-2 flex flex-col gap-2">
-                        <div
-                            class="bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group">
-                            <div class="flex flex-col">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-lust-primary/10 flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-lust-primary" viewBox="0 0 24 24" fill="none">
-                                            <path
-                                                d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                        </svg></div>
-                                    <h3 class="text-lg font-medium text-white">Username Tracking</h3>
-                                </div>
-                                <p class="text-sm text-zinc-400 mb-4">Get notified when desired usernames become
-                                    available</p>
-                                <div class="bg-black/20 rounded-xl p-4">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0"><img
-                                                src="images/lustav.png" alt="lust" class="w-full h-full object-cover">
-                                        </div><span class="text-white text-sm font-medium">lust</span><span
-                                            class="px-1 py-0.5 text-[10px] font-medium bg-[#5865F2] rounded text-white">APP</span>
-                                    </div>
-                                    <p class="text-zinc-400 text-sm">femurs has been dropped.</p>
-                                    <p class="text-xs text-zinc-500 mt-1">Username will be available in 14 days</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-black/40 backdrop-blur-xl rounded-[2rem] p-6 border border-white/5 hover:border-white/10 transition-all duration-300 group">
-                            <div class="flex flex-col">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <div
-                                        class="w-10 h-10 rounded-xl bg-lust-primary/10 flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-lust-primary" viewBox="0 0 24 24" fill="none">
-                                            <path
-                                                d="M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round"></path>
-                                        </svg></div>
-                                    <h3 class="text-lg font-medium text-white">Vanity Tracking</h3>
-                                </div>
-                                <p class="text-sm text-zinc-400 mb-4">Monitor vanity URLs and get instant notifications
-                                    when they're available</p>
-                                <div class="bg-black/20 rounded-xl p-4">
-                                    <div class="flex items-center gap-3 mb-2">
-                                        <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0"><img
-                                                src="images/lustav.png" alt="lust" class="w-full h-full object-cover">
-                                        </div><span class="text-white text-sm font-medium">lust</span><span
-                                            class="px-1 py-0.5 text-[10px] font-medium bg-[#5865F2] rounded text-white">APP</span>
-                                    </div>
-                                    <p class="text-zinc-400 text-sm">lust has been dropped.</p>
-                                    <p class="text-xs text-zinc-500 mt-1">Vanity will be available in 14 days</p>
                                 </div>
                             </div>
                         </div>
@@ -1180,7 +944,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-8">
                     <div class="flex flex-col items-center sm:items-start gap-2">
                         <p class="text-white/70 text-xs font-medium">Copyright © 2025 lust. All rights reserved.</p>
-                       
+
                     </div>
                     <nav class="flex flex-wrap justify-center gap-x-8 gap-y-3"><a class="relative group" href="/invite">
                             <div
