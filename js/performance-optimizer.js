@@ -174,23 +174,14 @@ class PerformanceOptimizer {
   }
 
   updateMusicPlayer() {
-    // Update music player with Ice track
-    const musicTitle = document.querySelector('.text-white.text-sm.font-medium');
-    const musicArtist = document.querySelector('.text-zinc-400.text-sm');
-
-    if (musicTitle && musicTitle.textContent.includes('Jhol')) {
-      musicTitle.textContent = 'Ice';
-    }
-
-    if (musicArtist && musicArtist.textContent.includes('Maanu')) {
-      musicArtist.textContent = 'Ice';
-    }
+    // Music player data is now handled by config.json
+    // No override needed since config already has correct values
   }
 
   updateStatistics() {
     // Use fallback stats if API fails
     const fallbackStats = {
-      servers: 150,
+      servers: 50,
       users: 200000,
       commands: 40900
     };

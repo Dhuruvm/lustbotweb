@@ -48,7 +48,7 @@
   },
   "hero": {
     "title": "Elevate your Server with lust",
-    "subtitle": "Trusted by 150+ servers and 200,000+ users, seamlessly blending functionality with style.",
+    "subtitle": "Trusted by 50+ servers and 200k+ users, seamlessly blending functionality with style.",
     "buttons": [
       {
         "label": "Add to Discord",
@@ -64,10 +64,10 @@
     "counters": [
       {
         "label": "Active Servers",
-        "value": 150,
+        "value": 50,
         "key": "servers",
         "animated": true,
-        "fallback": 150
+        "fallback": 50
       },
       {
         "label": "Total Users", 

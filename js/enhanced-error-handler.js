@@ -149,17 +149,8 @@ class EnhancedErrorHandler {
       el.style.filter = 'none';
     });
 
-    // Update music player with correct info
-    const musicTitle = document.querySelector('.text-white.text-sm.font-medium');
-    const musicArtist = document.querySelector('.text-zinc-400.text-sm');
-    
-    if (musicTitle && musicTitle.textContent === 'Jhol') {
-      musicTitle.textContent = 'Ice';
-    }
-    
-    if (musicArtist && musicArtist.textContent === 'Maanu x Annural Khalid') {
-      musicArtist.textContent = 'Ice';
-    }
+    // Music player data is now handled by config.json
+    // No override needed since config already has correct values
   }
 }
 
