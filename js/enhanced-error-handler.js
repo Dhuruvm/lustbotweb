@@ -2,8 +2,13 @@
 // Enhanced Error Handler for React and API Issues
 class EnhancedErrorHandler {
   constructor() {
+    if (window.enhancedErrorHandlerInstance) {
+      return window.enhancedErrorHandlerInstance;
+    }
+    
     this.retryAttempts = 3;
     this.retryDelay = 1000;
+    window.enhancedErrorHandlerInstance = this;
     this.initializeErrorHandling();
   }
 
@@ -158,8 +163,8 @@ class EnhancedErrorHandler {
   }
 }
 
-// Initialize error handler
-const errorHandler = new EnhancedErrorHandler();
-
-// Export for use by other scripts
-window.enhancedErrorHandler = errorHandler;
+// Initialize error handler (prevent duplicate initialization)
+if (!window.enhancedErrorHandlerInstance) {
+  const errorHandler = new EnhancedErrorHandler();
+  window.enhancedErrorHandler = errorHandler;
+}

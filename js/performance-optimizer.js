@@ -2,12 +2,23 @@
 // Performance Optimizer for Website Loading Issues
 class PerformanceOptimizer {
   constructor() {
+    if (window.performanceOptimizerInstance) {
+      return window.performanceOptimizerInstance;
+    }
+    
     this.initialized = false;
     this.criticalResourcesLoaded = false;
+    window.performanceOptimizerInstance = this;
     this.init();
   }
 
   init() {
+    if (this.initialized) return;
+    this.initialized = true;
+    
+    // Fix existing conflicts first
+    this.fixScriptConflicts();
+    
     // Preload critical resources
     this.preloadCriticalResources();
     
@@ -19,6 +30,23 @@ class PerformanceOptimizer {
     
     // Monitor performance
     this.monitorPerformance();
+    
+    // Force content display
+    this.forceContentDisplay();
+  }
+
+  fixScriptConflicts() {
+    // Remove duplicate script tags
+    const scriptSources = ['config-loader.js', 'enhanced-error-handler.js', 'config-manager.js'];
+    scriptSources.forEach(src => {
+      const scripts = document.querySelectorAll(`script[src*="${src}"]`);
+      if (scripts.length > 1) {
+        // Keep only the first one
+        for (let i = 1; i < scripts.length; i++) {
+          scripts[i].remove();
+        }
+      }
+    });
   }
 
   preloadCriticalResources() {
@@ -208,14 +236,59 @@ class PerformanceOptimizer {
       el.style.filter = 'none';
     });
   }
+
+  forceContentDisplay() {
+    // Force all content to be visible immediately
+    setTimeout(() => {
+      const allElements = document.querySelectorAll('*[style*="opacity:0"], *[style*="opacity: 0"]');
+      allElements.forEach(el => {
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'translateY(0px)';
+        el.style.filter = 'none';
+      });
+
+      // Specifically target main content areas
+      const mainContent = document.querySelector('.relative.w-full.overflow-x-hidden');
+      if (mainContent) {
+        mainContent.style.opacity = '1';
+        mainContent.style.visibility = 'visible';
+      }
+
+      // Fix hero section
+      const heroSection = document.querySelector('.relative.min-h-\\[calc\\(100vh-4rem\\)\\]');
+      if (heroSection) {
+        heroSection.style.opacity = '1';
+        heroSection.style.filter = 'none';
+        heroSection.style.transform = 'none';
+      }
+
+      // Fix all sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.style.opacity = '1';
+        section.style.transform = 'translateY(0px)';
+      });
+
+      // Update statistics immediately
+      this.updateStatistics();
+      
+    }, 100);
+  }
 }
 
-// Initialize performance optimizer
-document.addEventListener('DOMContentLoaded', () => {
-  const optimizer = new PerformanceOptimizer();
-  window.performanceOptimizer = optimizer;
-});
+// Initialize performance optimizer (prevent duplicate initialization)
+if (!window.performanceOptimizerInstance) {
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!window.performanceOptimizerInstance) {
+      const optimizer = new PerformanceOptimizer();
+      window.performanceOptimizer = optimizer;
+    }
+  });
 
-// Also initialize immediately for faster loading
-const optimizer = new PerformanceOptimizer();
-window.performanceOptimizer = optimizer;
+  // Also initialize immediately for faster loading
+  if (!window.performanceOptimizerInstance) {
+    const optimizer = new PerformanceOptimizer();
+    window.performanceOptimizer = optimizer;
+  }
+}
