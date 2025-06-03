@@ -1,4 +1,3 @@
-
 {
   "site": {
     "title": "lust",
@@ -95,8 +94,8 @@
         "type": "widget",
         "data": {
           "currentSong": {
-            "title": "Jhol",
-            "artist": "Maanu x Annural Khalid",
+            "title": "Ice",
+            "artist": "Ice",
             "cover": "images/backtome.jpg",
             "duration": "3:45",
             "progress": "2:14"
@@ -511,4 +510,3 @@
     "retryAttempts": 3
   }
 }
-
