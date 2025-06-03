@@ -22,13 +22,7 @@
     }
   },
   "navigation": {
-    "main": [
-      {
-        "label": "Embeds",
-        "href": "/embed",
-        "active": false
-      }
-    ],
+    "main": [],
     "secondary": [
       {
         "label": "Status",
@@ -437,10 +431,6 @@
       {
         "label": "Invite",
         "href": "/invite"
-      },
-      {
-        "label": "Documentation",
-        "href": "https://docs.lust.bot.nu/"
       },
       {
         "label": "Support",
